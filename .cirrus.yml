@@ -1,9 +1,9 @@
 env:
-    credentials: "ENCRYPTED[4f2ed4bc06ea9b13426d3c2b0a32d822540042f7e18eab0ab30efe538432dd1b2d06b90466747f0fd2d80bdd34375f3b]"
-    rcloneconfig: "ENCRYPTED[ffc2eb881b5fc1c1c430af3667b0e0fd072bed775946f0f609652697acc32c0af32057583dc9cd5176dcc0171eb8e029]"
-    tokentl: "ENCRYPTED[4831f48cbdfe4eb5e1638bab74422e6a4ae07d1daf9943f5e29d43687bbe9ee06751d71edb1ae64b6cd9f981181485db]"
-    idtl: "ENCRYPTED[e44213293d81b4a499d6005f2eaab4725c7cada1bccc7b562216ced8829f23c27346383e478de8896a81e98b6269bbc9]"
-    lunch: lunch lineage_X00T-userdebug
+    credentials: "ENCRYPTED[5aae46bf2deddb150a353295a9950ed46d72d92ae4de42bfe7a8a09d70bf3a5eaa4d904faaa50a0fd2c4d857f0efc748]"
+    rcloneconfig: "ENCRYPTED[321d965ddc9c4f951db8066d6cf99392857302e29fbb1e82ed1286614938aecc1eae36c71d1bf60127f6fddc006a3a7b]"
+    tokentl: "ENCRYPTED[ac55b44fad8e3eaaeb2dfb3c3cf058f3c3dd838bca1faac712f5cd8ccbb46c78dbfe66d808991fd86f6095fc8e94e1f9]"
+    idtl: "ENCRYPTED[acffabec2efd207dd1310a435adf7377021c8ef2c82c0fb932c5ff05e9af2d6faf88ed6fc58cb76f965ea0137e0e95a2]"
+    lunch: lunch lineage_X00TD-user
     make: mka bacon
 
 task:
@@ -18,12 +18,12 @@ task:
        - export DEBIAN_FRONTEND=noninteractive
        - mkdir -p ~/.config/rclone
        - echo "$rcloneconfig" > ~/.rclone.conf
-       - git config --global user.name "texascake"
-       - git config --global user.email "budalblimbing@gmail.com"
+       - git config --global user.name "aslenofarid"
+       - git config --global user.email "yoniasleno.farid14@gmail.com"
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy asus:lineage/ccache.tar.gz ~/ -P
+       - rclone copy asus:asleno/ccache.tar.gz ~/ -P
        - cd ~/
        - time tar xf ccache.tar.gz
        - cd ~/
@@ -41,7 +41,7 @@ task:
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
       - repo init --depth=1 -u https://github.com/lineageos/android.git -b lineage-17.1 -g default,-mips,-darwin,-notdefault
-      - git clone --depth=1 https://github.com/texascake/local_manifest.git -b lineage-17.1 .repo/local_manifests
+      - git clone --depth=1 https://github.com/aslenofarid/local_manifest.git -b lineage-17.1 .repo/local_manifests
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
 #      - sed -i 's|ssh://git@github.com|https://github.com|g' .repo/manifests/snippets/qassa.xml
 #      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 --fail-fast
@@ -50,7 +50,7 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Sync Completed!"
 
   Build_script:
-      - export BUILD_USERNAME="queen"
+      - export BUILD_USERNAME="asleno"
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="⏳ Build lineage-17.1 for X00T Started. . ."
