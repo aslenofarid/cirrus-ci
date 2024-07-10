@@ -64,5 +64,5 @@ task:
       - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="📤 Uploading ccache...."
-      - rclone copy ccache.tar.gz asus:lineage -P
+      - rclone copy ccache.tar.gz asleno:lineage -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Ccache Uploaded Successfully!"
