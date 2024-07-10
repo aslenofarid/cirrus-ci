@@ -53,10 +53,10 @@ task:
       - export BUILD_USERNAME="asleno"
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="⏳ Build lineage-17.1 for X00T Started. . ."
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="⏳ Build lineage-17.1 for X00TD Started. . ."
       - ./collect.sh
 #      - ./final.sh
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Build $(cd ~/rom/out/target/product/X00T/ && ls lineage-*.zip) Completed!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Build $(cd ~/rom/out/target/product/X00TD/ && ls lineage-*.zip) Completed!"
 
   Upload_script:
       - ./upload.sh
